@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Water
   - Checkpoint
+  - Ground
   layers:
   - Default
   - TransparentFX
