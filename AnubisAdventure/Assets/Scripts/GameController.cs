@@ -6,6 +6,7 @@ public class GameController : MonoBehaviour
 {
     Vector2 flagPosition;
     Rigidbody2D rb;
+    int waterCounter = 0; //Created to prevent double execution for Die()
 
     private void Start()
     {
@@ -17,7 +18,19 @@ public class GameController : MonoBehaviour
     {
         if (collision.CompareTag("Water"))
         {
-            Die();
+            waterCounter++;
+            if (waterCounter == 1) //Executes it only when it touches it only one time.
+            {
+                Die();
+            }
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Water")) //Reset the counter
+        {
+            waterCounter = 0;
         }
     }
 
@@ -28,6 +41,8 @@ public class GameController : MonoBehaviour
 
     void Die()
     {
+        //Remove a heart from the health whenever it dies from touching something like water
+        PlayerStats.Instance.TakeDamage(1);
         StartCoroutine(Respawn(0.3f));
     }
 
