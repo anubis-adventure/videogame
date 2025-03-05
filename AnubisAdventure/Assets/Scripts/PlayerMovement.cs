@@ -40,8 +40,8 @@ public class PlayerMovement : MonoBehaviour
         }
 
         // Salto
-        bool jump = Input.GetButtonDown("Jump");
-        if (jump && CheckGround.isGrounded)
+        float jump = Input.GetAxis("Jump");
+        if (jump > 0 && CheckGround.isGrounded)
         {
             rigidBody2d.velocity = new Vector2(rigidBody2d.velocity.x, jumpForce);
         }

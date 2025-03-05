@@ -4,11 +4,13 @@ using UnityEngine;
 
 public class GameController : MonoBehaviour
 {
-    Vector2 startPos;
+    Vector2 flagPosition;
+    Rigidbody2D rb;
 
     private void Start()
     {
-        startPos = transform.position;
+        flagPosition = transform.position;
+        rb = GetComponent<Rigidbody2D>();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -19,6 +21,11 @@ public class GameController : MonoBehaviour
         }
     }
 
+    public void UpdateCheckpoint(Vector2 checkpointPosition)
+    {
+        flagPosition = checkpointPosition;
+    }
+
     void Die()
     {
         StartCoroutine(Respawn(0.3f));
@@ -26,7 +33,8 @@ public class GameController : MonoBehaviour
 
     IEnumerator Respawn(float duration)
     {
+        rb.velocity = new Vector2(0, 0);
         yield return new WaitForSeconds(duration);
-        transform.position = startPos;
+        transform.position = flagPosition;
     }
 }
