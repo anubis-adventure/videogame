@@ -344,7 +344,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: HAS MUERTO
+  m_text: YOU DIED
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 795009cfa00b08d4aaf98591377d7eba, type: 2}
   m_sharedMaterial: {fileID: -2049579630559829616, guid: 795009cfa00b08d4aaf98591377d7eba, type: 2}
@@ -23798,7 +23798,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: REINICIAR
+  m_text: RESTART
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 795009cfa00b08d4aaf98591377d7eba, type: 2}
   m_sharedMaterial: {fileID: -2049579630559829616, guid: 795009cfa00b08d4aaf98591377d7eba, type: 2}

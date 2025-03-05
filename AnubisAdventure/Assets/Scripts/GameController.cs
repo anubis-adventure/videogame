@@ -47,11 +47,15 @@ public class GameController : MonoBehaviour
 
         //If there's no health remaining, then show the game over screen
         float remainingHealth = PlayerStats.Instance.Health;
-        if (remainingHealth <= 0) {
+        if (remainingHealth <= 0)
+        {
             goController.Show();
+            rb.constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezePositionY; //Freeze coords
         }
-
-        StartCoroutine(Respawn(0.3f));
+        else
+        {
+            StartCoroutine(Respawn(0.3f));
+        }
     }
 
     IEnumerator Respawn(float duration)
