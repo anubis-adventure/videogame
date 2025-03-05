@@ -7,6 +7,7 @@ public class GameController : MonoBehaviour
     Vector2 flagPosition;
     Rigidbody2D rb;
     int waterCounter = 0; //Created to prevent double execution for Die()
+    public GameOverController goController;
 
     private void Start()
     {
@@ -43,6 +44,13 @@ public class GameController : MonoBehaviour
     {
         //Remove a heart from the health whenever it dies from touching something like water
         PlayerStats.Instance.TakeDamage(1);
+
+        //If there's no health remaining, then show the game over screen
+        float remainingHealth = PlayerStats.Instance.Health;
+        if (remainingHealth <= 0) {
+            goController.Show();
+        }
+
         StartCoroutine(Respawn(0.3f));
     }
 
