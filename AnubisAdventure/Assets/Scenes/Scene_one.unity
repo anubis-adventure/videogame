@@ -1887,7 +1887,7 @@ GameObject:
   - component: {fileID: 872962947}
   - component: {fileID: 872962946}
   - component: {fileID: 872962945}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Ceiling
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -23380,6 +23380,7 @@ GameObject:
   - component: {fileID: 969989441}
   - component: {fileID: 969989442}
   - component: {fileID: 969989443}
+  - component: {fileID: 969989444}
   m_Layer: 0
   m_Name: Anubis
   m_TagString: Player
@@ -23525,6 +23526,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1042473315}
+  - {fileID: 1654871933}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &969989441
@@ -23541,6 +23543,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 3
   jumpForce: 5
+  launchScratch: {fileID: 6471509991365419747, guid: f3945a203ebc55343ac79eca67ae66ca, type: 3}
+  scratchSpawnPoint: {fileID: 1654871933}
 --- !u!95 &969989442
 Animator:
   serializedVersion: 5
@@ -23575,6 +23579,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goController: {fileID: 810154976}
+--- !u!114 &969989444
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 969989436}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8615f0ee2e80b414f95682138931f06a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clawScratch: {fileID: 310553346191496107, guid: f3945a203ebc55343ac79eca67ae66ca, type: 3}
+  spawnPoint: {fileID: 1654871933}
+  animator: {fileID: 0}
+  attackDuration: 0.3
 --- !u!1 &971922034
 GameObject:
   m_ObjectHideFlags: 0
@@ -24362,6 +24382,83 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1259813931}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1654871932
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1654871933}
+  - component: {fileID: 1654871934}
+  m_Layer: 0
+  m_Name: ClawScratchPoint
+  m_TagString: ScratchPoint
+  m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1654871933
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1654871932}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.84, y: 0.48, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 969989440}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &1654871934
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1654871932}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
 --- !u!1 &1742984284
 GameObject:
   m_ObjectHideFlags: 0
@@ -24930,7 +25027,7 @@ GameObject:
   - component: {fileID: 2023592178}
   - component: {fileID: 2023592180}
   - component: {fileID: 2023592179}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -97287,7 +97384,7 @@ GameObject:
   - component: {fileID: 2120112219}
   - component: {fileID: 2120112221}
   - component: {fileID: 2120112220}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Ground
   m_TagString: Ground
   m_Icon: {fileID: 0}

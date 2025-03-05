@@ -11,11 +11,21 @@ public class PlayerMovement : MonoBehaviour
     public float moveSpeed = 3f;
     public float jumpForce = 5f;
 
+    public LaunchScratch launchScratch;
+    public Transform scratchSpawnPoint;
+
+    private Vector3 spawnPointOriginalLocalPos;
+
     void Start()
     {
         rigidBody2d = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         animator = GetComponent<Animator>();
+
+        if (scratchSpawnPoint != null) //The og position of the scratch spawn point
+        {
+            spawnPointOriginalLocalPos = scratchSpawnPoint.localPosition;
+        }
     }
 
     void Update()
@@ -32,6 +42,25 @@ public class PlayerMovement : MonoBehaviour
 
 
             spriteRenderer.flipX = (move < 0);
+
+            //Change the rotation of the scratch
+            if (launchScratch != null)
+            {
+                launchScratch.facingLeft = (move < 0);
+            }
+
+            //Change the position of the scratch spawn point
+            if (scratchSpawnPoint != null)
+            {
+                if (move < 0)
+                {
+                    scratchSpawnPoint.localPosition = new Vector3(-Mathf.Abs(spawnPointOriginalLocalPos.x), spawnPointOriginalLocalPos.y, spawnPointOriginalLocalPos.z);
+                }
+                else
+                {
+                    scratchSpawnPoint.localPosition = new Vector3(Mathf.Abs(spawnPointOriginalLocalPos.x), spawnPointOriginalLocalPos.y, spawnPointOriginalLocalPos.z);
+                }
+            }
         }
         else
         {
