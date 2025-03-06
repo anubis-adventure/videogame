@@ -1,4 +1,4 @@
-﻿/*
+/*
  *  Author: ariel oliveira [o.arielg@gmail.com]
  */
 
@@ -54,7 +54,7 @@ public class PlayerStats : MonoBehaviour
 
             if (onHealthChangedCallback != null)
                 onHealthChangedCallback.Invoke();
-        }   
+        }
     }
 
     void ClampHealth()
