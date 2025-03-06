@@ -1,7 +1,3 @@
-/*
- *  Author: ariel oliveira [o.arielg@gmail.com]
- */
-
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -16,10 +12,10 @@ public class HealthBController : MonoBehaviour
     private void Start()
     {
         // Should I use lists? Maybe :)
-        heartContainers = new GameObject[(int)PlayerStats.Instance.MaxTotalHealth];
-        heartFills = new Image[(int)PlayerStats.Instance.MaxTotalHealth];
+        heartContainers = new GameObject[(int)PStats.Instance.MaxTotalHealth];
+        heartFills = new Image[(int)PStats.Instance.MaxTotalHealth];
 
-        PlayerStats.Instance.onHealthChangedCallback += UpdateHeartsHUD;
+        PStats.Instance.onHealthChangedCallback += UpdateHeartsHUD;
         InstantiateHeartContainers();
         UpdateHeartsHUD();
     }
@@ -34,7 +30,7 @@ public class HealthBController : MonoBehaviour
     {
         for (int i = 0; i < heartContainers.Length; i++)
         {
-            if (i < PlayerStats.Instance.MaxHealth)
+            if (i < PStats.Instance.MaxHealth)
             {
                 heartContainers[i].SetActive(true);
             }
@@ -49,7 +45,7 @@ public class HealthBController : MonoBehaviour
     {
         for (int i = 0; i < heartFills.Length; i++)
         {
-            if (i < PlayerStats.Instance.Health)
+            if (i < PStats.Instance.Health)
             {
                 heartFills[i].fillAmount = 1;
             }
@@ -59,16 +55,16 @@ public class HealthBController : MonoBehaviour
             }
         }
 
-        if (PlayerStats.Instance.Health % 1 != 0)
+        if (PStats.Instance.Health % 1 != 0)
         {
-            int lastPos = Mathf.FloorToInt(PlayerStats.Instance.Health);
-            heartFills[lastPos].fillAmount = PlayerStats.Instance.Health % 1;
+            int lastPos = Mathf.FloorToInt(PStats.Instance.Health);
+            heartFills[lastPos].fillAmount = PStats.Instance.Health % 1;
         }
     }
 
     void InstantiateHeartContainers()
     {
-        for (int i = 0; i < PlayerStats.Instance.MaxTotalHealth; i++)
+        for (int i = 0; i < PStats.Instance.MaxTotalHealth; i++)
         {
             GameObject temp = Instantiate(heartContainerPrefab);
             temp.transform.SetParent(heartsParent, false);
