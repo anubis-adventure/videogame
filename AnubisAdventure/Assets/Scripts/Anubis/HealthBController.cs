@@ -1,11 +1,11 @@
-﻿/*
+/*
  *  Author: ariel oliveira [o.arielg@gmail.com]
  */
 
 using UnityEngine;
 using UnityEngine.UI;
 
-public class HealthBarController : MonoBehaviour
+public class HealthBController : MonoBehaviour
 {
     private GameObject[] heartContainers;
     private Image[] heartFills;

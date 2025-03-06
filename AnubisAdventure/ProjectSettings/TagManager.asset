@@ -10,6 +10,7 @@ TagManager:
   - Flag
   - ScratchPoint
   - Scratch
+  - Snorkel
   layers:
   - Default
   - TransparentFX
