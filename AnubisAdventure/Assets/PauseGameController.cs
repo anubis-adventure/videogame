@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PauseGameController : MonoBehaviour
 {
@@ -50,5 +51,10 @@ public class PauseGameController : MonoBehaviour
             Time.timeScale = 1f;
             isPaused = false;
         }
+    }
+
+    public void ExitGame()
+    {
+        SceneManager.LoadSceneAsync(0);
     }
 }
