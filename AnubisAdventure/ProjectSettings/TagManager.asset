@@ -13,6 +13,7 @@ TagManager:
   - Snorkel
   - Rat
   - SWater
+  - Level2
   layers:
   - Default
   - TransparentFX

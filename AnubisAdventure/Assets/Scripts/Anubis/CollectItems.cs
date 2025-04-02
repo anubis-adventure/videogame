@@ -5,7 +5,8 @@ using UnityEngine;
 public class CollectItems : MonoBehaviour
 {
     private bool _hasSnorkel = false;
-    public SnorkelController controller;
+    public TimerController timer;
+    public AnimatedText animatedText;
 
     public bool HasSnorkle
     {
@@ -24,7 +25,13 @@ public class CollectItems : MonoBehaviour
         if (collision.CompareTag("Snorkel"))
         {
             _hasSnorkel = true;
-            Destroy(controller.gameObject);
+            Destroy(collision.gameObject);
+
+            //Shows the animated text
+            animatedText.ShowAnimatedText();
+
+            //Adds time
+            timer.AddTime(7.5f);
         }
     }
 

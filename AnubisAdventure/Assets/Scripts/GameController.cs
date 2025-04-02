@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour
 {
@@ -25,6 +26,11 @@ public class GameController : MonoBehaviour
                 Die();
             }
         }
+
+        if (collision.CompareTag("Level2"))
+        {
+            SceneManager.LoadScene("Scene_two");
+        }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
@@ -40,7 +46,7 @@ public class GameController : MonoBehaviour
         flagPosition = checkpointPosition;
     }
 
-    void Die()
+    public void Die()
     {
         //Remove a heart from the health whenever it dies from touching something like water
         PStats.Instance.TakeDamage(1);
