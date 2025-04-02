@@ -14,7 +14,8 @@ public class GameOverController : MonoBehaviour
     {
         //Hide the screen
         gameObject.SetActive(false);
-        SceneManager.LoadScene("Scene_one");
+        Scene currentScene = SceneManager.GetActiveScene();
+        SceneManager.LoadScene(currentScene.name);
     }
 }
     

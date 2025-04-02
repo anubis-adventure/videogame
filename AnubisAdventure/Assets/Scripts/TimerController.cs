@@ -6,12 +6,32 @@ public class TimerController : MonoBehaviour
 {
     public float currentTime = 30f;
     public TMP_Text timerText;
+    public GameController gameController;
+
+    private float dieCooldown = 1.5f;
+    private float dieTimer = 0f;
 
     void Update()
     {
         currentTime -= Time.deltaTime;
+        currentTime = Mathf.Max(currentTime, 0f);
 
-        currentTime = Mathf.Max(currentTime, 0f); //Min 0
+        if (currentTime <= 0f)
+        {
+            // Increment dieTimer when time is 0
+            dieTimer += Time.deltaTime;
+            if (dieTimer >= dieCooldown)
+            {
+                gameController.Die();
+                currentTime = 30f;
+                dieTimer = 0f; // Reset timer
+            }
+        }
+        else
+        {
+            // Reset timer if is greater than 0
+            dieTimer = 0f;
+        }
 
         timerText.text = "Time Left: " + Mathf.Ceil(currentTime).ToString();
     }
