@@ -12,6 +12,7 @@ TagManager:
   - Scratch
   - Snorkel
   - Rat
+  - SWater
   layers:
   - Default
   - TransparentFX
