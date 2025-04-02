@@ -17,7 +17,6 @@ public class EnemyPatrol : MonoBehaviour
         animator.SetBool("isRunning", true);
     }
 
-    // Update is called once per frame
     void Update()
     {
         Vector2 point = currentPoint.position - transform.position;
