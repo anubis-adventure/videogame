@@ -14,11 +14,13 @@ public class SwimmingMovement : MonoBehaviour
     private Rigidbody2D rb;
     private float originalGravityScale;
     private Vector3 spawnPointOriginalLocalPos;
+    private Animator animator;
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         spriteRenderer = rb.GetComponent<SpriteRenderer>();
+        animator = rb.GetComponent<Animator>();
         originalGravityScale = rb.gravityScale;
         rb.drag = waterDrag;
     }
@@ -33,6 +35,9 @@ public class SwimmingMovement : MonoBehaviour
         {
             moveInput.Normalize();
         }
+
+        bool isSwimming = moveInput.magnitude > 0.1f;
+        animator.SetBool("isSwimming", isSwimming);
 
         if (moveX != 0) 
         {
@@ -68,7 +73,6 @@ public class SwimmingMovement : MonoBehaviour
 
     public void EnableSwimming()
     {
-        Debug.Log("Swimming enabled");
         rb.gravityScale = waterGravityScale;
     }
 
