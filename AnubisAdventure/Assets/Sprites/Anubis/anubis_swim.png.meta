@@ -43,7 +43,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -93,9 +93,106 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: anubis_swim_0
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 80
+        width: 400
+        height: 304
+      alignment: 9
+      pivot: {x: 0.4880485, y: 0.3105257}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fdba3c519c068934289907d272dfe5c7
+      internalID: -1252070729
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: anubis_swim_1
+      rect:
+        serializedVersion: 2
+        x: 608
+        y: 72
+        width: 376
+        height: 320
+      alignment: 9
+      pivot: {x: 0.4880485, y: 0.3105257}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d3f731cf87f16e04eb65db9e919d32b8
+      internalID: -836735570
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: anubis_swim_2
+      rect:
+        serializedVersion: 2
+        x: 1096
+        y: 72
+        width: 400
+        height: 304
+      alignment: 9
+      pivot: {x: 0.4880485, y: 0.3105257}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ce14ec6772f4fb2489663b29624a450f
+      internalID: 6676733
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: anubis_swim_3
+      rect:
+        serializedVersion: 2
+        x: 1600
+        y: 72
+        width: 408
+        height: 328
+      alignment: 9
+      pivot: {x: 0.4880485, y: 0.3105257}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 17361f2908d67f441b1a238d8fd970c7
+      internalID: 190298224
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -106,7 +203,11 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      anubis_swim_0: -1252070729
+      anubis_swim_1: -836735570
+      anubis_swim_2: 6676733
+      anubis_swim_3: 190298224
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

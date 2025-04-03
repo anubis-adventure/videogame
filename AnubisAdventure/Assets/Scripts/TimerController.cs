@@ -7,6 +7,7 @@ public class TimerController : MonoBehaviour
     public float currentTime = 30f;
     public TMP_Text timerText;
     public GameController gameController;
+    public Animator animator;
 
     private float dieCooldown = 1.5f;
     private float dieTimer = 0f;
@@ -34,6 +35,18 @@ public class TimerController : MonoBehaviour
         }
 
         timerText.text = "Time Left: " + Mathf.Ceil(currentTime).ToString();
+    }
+
+    private void FixedUpdate()
+    {
+        if (currentTime <= 0f) 
+        {
+            animator.SetBool("lostSnorkel", true);
+        }
+        else
+        {
+            animator.SetBool("lostSnorkel", false);
+        }
     }
 
     public void AddTime(float additionalTime)
