@@ -3,12 +3,20 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+[RequireComponent(typeof(AudioSource))]
 public class GameController : MonoBehaviour
 {
     Vector2 flagPosition;
     Rigidbody2D rb;
     int waterCounter = 0; //Created to prevent double execution for Die()
     public GameOverController goController;
+    public AudioClip waterSplashClip;
+    AudioSource _audioSource;
+
+    void Awake()
+    {
+        _audioSource = GetComponent<AudioSource>();
+    }
 
     private void Start()
     {
@@ -20,6 +28,7 @@ public class GameController : MonoBehaviour
     {
         if (collision.CompareTag("Water"))
         {
+            _audioSource.PlayOneShot(waterSplashClip, 0.5f);
             waterCounter++;
             if (waterCounter == 1) //Executes it only when it touches it only one time.
             {
