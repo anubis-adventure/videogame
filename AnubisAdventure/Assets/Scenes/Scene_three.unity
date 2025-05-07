@@ -3230,6 +3230,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goController: {fileID: 667535587}
+  waterSplashClip: {fileID: 0}
 --- !u!114 &969989444
 MonoBehaviour:
   m_ObjectHideFlags: 0
