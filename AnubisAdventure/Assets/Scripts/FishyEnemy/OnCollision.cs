@@ -4,12 +4,14 @@ using UnityEngine;
 
 public class OnColli : MonoBehaviour
 {
+
+    public GameController controller;
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            Debug.Log("El pececillo le hizo plop al gato");
-            PStats.Instance.TakeDamage(1);
+            controller.TakeDamage();
         }
     }
 }
