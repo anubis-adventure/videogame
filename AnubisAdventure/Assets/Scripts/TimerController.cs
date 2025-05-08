@@ -12,10 +12,26 @@ public class TimerController : MonoBehaviour
     private float dieCooldown = 1.5f;
     private float dieTimer = 0f;
 
+    void Start()
+    {
+        currentTime = SaveManager.Instance.saveData.snorkelTimeLeft;
+        if(currentTime <= 0f)
+        {
+            dieTimer += Time.deltaTime;
+            if (dieTimer >= dieCooldown)
+            {
+                gameController.Die();
+                currentTime = 30f;
+                dieTimer = 0f; // Reset timer
+            }
+        }
+    }
+
     void Update()
     {
         currentTime -= Time.deltaTime;
         currentTime = Mathf.Max(currentTime, 0f);
+        SaveManager.Instance.saveData.snorkelTimeLeft = currentTime;
 
         if (currentTime <= 0f)
         {

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class WhaleBehaviour : MonoBehaviour
 {
@@ -43,7 +44,6 @@ public class WhaleBehaviour : MonoBehaviour
         if (whaleLifePoints <= 0)
         {
             Die();
-            // aca cambiar de escena?
         }
     }
 
@@ -69,5 +69,8 @@ public class WhaleBehaviour : MonoBehaviour
     {
         yield return new WaitForSeconds(3);
         Destroy(gameObject);
+
+        //Cambiar a escena final
+        SceneManager.LoadScene("final_cutscene", LoadSceneMode.Single);
     }
 }
