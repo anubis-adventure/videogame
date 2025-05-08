@@ -3,12 +3,20 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+[RequireComponent(typeof(AudioSource))]
 public class GameController : MonoBehaviour
 {
     Vector2 flagPosition;
     Rigidbody2D rb;
     int waterCounter = 0; //Created to prevent double execution for Die()
     public GameOverController goController;
+    public AudioClip waterSplashClip;
+    AudioSource _audioSource;
+
+    void Awake()
+    {
+        _audioSource = GetComponent<AudioSource>();
+    }
 
     private void Start()
     {
@@ -20,6 +28,7 @@ public class GameController : MonoBehaviour
     {
         if (collision.CompareTag("Water"))
         {
+            _audioSource.PlayOneShot(waterSplashClip, 0.5f);
             waterCounter++;
             if (waterCounter == 1) //Executes it only when it touches it only one time.
             {
@@ -62,6 +71,27 @@ public class GameController : MonoBehaviour
         {
             StartCoroutine(Respawn(0.3f));
         }
+    }
+
+    public void TakeDamage()
+    {
+        //TakeDamage
+        PStats.Instance.TakeDamage(0.5f);
+
+        //If there's no health remaining, then show the game over screen
+        float remainingHealth = PStats.Instance.Health;
+        if (remainingHealth <= 0)
+        {
+            goController.Show();
+            rb.constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezePositionY; //Freeze coords
+        }
+    }
+
+    public void Restart()
+    {
+        Time.timeScale = 1.0f;
+        Scene scene = SceneManager.GetActiveScene();
+        SceneManager.LoadScene(scene.name);
     }
 
     IEnumerator Respawn(float duration)
