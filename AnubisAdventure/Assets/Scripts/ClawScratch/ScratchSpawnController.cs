@@ -10,6 +10,8 @@ public class ScratchSpawnController : MonoBehaviour
     public float attackDuration = 0.25f;
     private bool canAttack = true;
 
+    public static event System.Action OnShoot;
+
     private void Start()
     {
         animator = GetComponent<Animator>();
@@ -22,10 +24,11 @@ public class ScratchSpawnController : MonoBehaviour
         //This creates the claw scratch in the fixed position
         if (scratch && canAttack) {
             StartCoroutine(PerformAttack());
+            OnShoot?.Invoke();
         }
     }
 
-    IEnumerator PerformAttack()
+    public IEnumerator PerformAttack()
     {
         animator.SetBool("attack", true);
         canAttack = false;
