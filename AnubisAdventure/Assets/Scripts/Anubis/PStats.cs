@@ -42,6 +42,15 @@ public class PStats : MonoBehaviour
         }
     }
 
+    private void Start()
+    {
+        health = SaveManager.Instance.saveData.playerLife;
+        if(health <= 0)
+        {
+            health = 7;
+        }
+    }
+
     public void Heal(float health)
     {
         this.health += health;

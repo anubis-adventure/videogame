@@ -22,6 +22,7 @@ public class GameController : MonoBehaviour
     {
         flagPosition = transform.position;
         rb = GetComponent<Rigidbody2D>();
+        SaveManager.Instance.saveData.currentScene = SceneManager.GetActiveScene().name;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -62,6 +63,7 @@ public class GameController : MonoBehaviour
 
         //If there's no health remaining, then show the game over screen
         float remainingHealth = PStats.Instance.Health;
+        SaveManager.Instance.saveData.playerLife = remainingHealth;
         if (remainingHealth <= 0)
         {
             goController.Show();
@@ -80,6 +82,7 @@ public class GameController : MonoBehaviour
 
         //If there's no health remaining, then show the game over screen
         float remainingHealth = PStats.Instance.Health;
+        SaveManager.Instance.saveData.playerLife = remainingHealth;
         if (remainingHealth <= 0)
         {
             goController.Show();
