@@ -9,11 +9,15 @@ public class ScratchDestroy : MonoBehaviour
     public bool collided = false;
     public LayerMask whatToCollideWith;
 
-    private void Update()
-    {
-        collided = Physics2D.OverlapCircle(scratch.position, colissionRadius, whatToCollideWith);
+    //private void Update()
+    //{
+    //    collided = Physics2D.OverlapCircle(scratch.position, colissionRadius, whatToCollideWith);
 
-        if (collided) Destroy(gameObject); //In case it touches walls and ground
-        if(!GetComponent<Renderer>().isVisible) Destroy(gameObject);
+    //    if (collided) Destroy(gameObject); //In case it touches walls and ground
+    //    if(!GetComponent<Renderer>().isVisible) Destroy(gameObject);
+    //}
+    void OnCollisionEnter2D(UnityEngine.Collision2D collision)
+    {
+        Destroy(gameObject);
     }
 }
