@@ -32,6 +32,6 @@ public class FishyColliScratch : MonoBehaviour
     System.Collections.IEnumerator DestroyAfterAnimation()
     {
         yield return new WaitForSeconds(animator.GetCurrentAnimatorStateInfo(0).length);
-        Destroy(gameObject);
+        Destroy(transform.root.gameObject);
     }
 }
